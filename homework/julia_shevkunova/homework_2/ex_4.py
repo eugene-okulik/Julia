@@ -2,4 +2,4 @@
 kat_1 = 54
 kat_2 = 43
 (kat_1 * kat_2) / 2
-print((kat_1 ** 2) + (kat_2 ** 2))
+(kat_1 ** 2) + (kat_2 ** 2)

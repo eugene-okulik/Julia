@@ -3,12 +3,11 @@ my_dict = {'tuple': '1, 2, 3, 4, 5', 'list': ['list1', 4, None, 23, False], 'set
                      'country': 'Belarus', 'Work': 'remote'}}
 
 
-print(my_dict['tuple'][-1]) # вывод на экран последнего элмента tuple
-my_dict['list'].append(8)  # добавление элмента в конец списка
-my_dict['list'].pop(1) # удаление второго элмента списка
-my_dict['ddict']['I_am_a_tuple'] = 'add' # добавление элмента с ключем в словарь
-my_dict['ddict'].pop('code') # удаление элмента из словаря
-my_dict['set'].add('text') # добавление элемента в множество
-my_dict['set'].remove(23)  # удаление элемента из множества
-print(my_dict) # вывол на экран словаря
-
+print(my_dict['tuple'][-1])     # вывод на экран последнего элмента tuple
+my_dict['list'].append(8)       # добавление элмента в конец списка
+my_dict['list'].pop(1)          # удаление второго элмента списка
+my_dict['ddict']['I_am_a_tuple'] = 'add'    # добавление элмента с ключем в словарь
+my_dict['ddict'].pop('code')         # удаление элмента из словаря
+my_dict['set'].add('text')      # добавление элемента в множество
+my_dict['set'].remove(23)       # удаление элемента из множества
+print(my_dict)      # вывод на экран словаря

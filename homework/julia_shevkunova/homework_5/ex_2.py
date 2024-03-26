@@ -18,11 +18,11 @@ string_3 = 'результат работы программы: 9'
 # print(int(string_3[27:]) + 10)
 
 
-index1 = (string_1.index(':')+1)
+index1 = (string_1.index(':') + 1)
 print(int(string_1[index1:]) + 10)
 
-index2 = (string_2.index(':')+1)
+index2 = (string_2.index(':') + 1)
 print(int(string_2[index2:]) + 10)
 
-index3 = (string_3.index(':')+1)
+index3 = (string_3.index(':') + 1)
 print(int(string_3[index3:]) + 10)

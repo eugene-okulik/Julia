@@ -1,12 +1,12 @@
-text = ("Etiam tincidunt neque erat, quis molestie enim imperdiet vel. Integer urna nisl, "
-        "facilisis vitae semper at, dignissim vitae libero”")
+text = ('Etiam tincidunt neque erat, quis molestie enim imperdiet vel. Integer urna nisl, facilisis vitae semper at, '
+        'dignissim vitae libero')
 
 words = text.split()
 fin_words = []
+ending = 'ing'
 for word in words:
-    if 'ing' in word:
-        fin_words.append(word.replace(',ing', 'ing,',))
-    else:
-        fin_words.append(word.replace(',ing', 'ing,' + 'ing'))
+    fin_words.append(word + ending)
 
-    print(' ' .join(fin_words))
+
+result = ' '.join(fin_words).replace(',ing', 'ing,').replace('.ing', 'ing.')
+print(result)

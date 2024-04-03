@@ -12,14 +12,12 @@ num_3 = int(string_3[index3:])
 index4 = (string_4.index(':') + 1)
 num_4 = int(string_4[index4:])
 
+
 def sum_numbers(index):
-        print(index + 10)
+    print(index + 10)
+
 
 sum_numbers(num_1)
 sum_numbers(num_2)
 sum_numbers(num_3)
 sum_numbers(num_4)
-
-
-
-

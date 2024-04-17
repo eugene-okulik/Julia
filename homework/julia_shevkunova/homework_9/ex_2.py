@@ -12,4 +12,4 @@ new_list_2 = (list(new_list))
 
 print(max(new_list_2))
 print(min(new_list_2))
-print(sum(new_list_2)/len(new_list_2))
+print(sum(new_list_2) / len(new_list_2))

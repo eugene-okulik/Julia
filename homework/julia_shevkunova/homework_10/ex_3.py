@@ -1,13 +1,13 @@
 def operations(func):
-    def wrapper():
-        if input1 == input2:
-            return func(input1, input2, '+')
-        if input1 > input2:
-            return func(input1, input2, '-')
-        if input2 > input1:
-            return func(input1, input2, '/')
-        if input2 < 0 or input1 < 0:
-            return func(input1, input2, '*')
+    def wrapper(first, second):
+        if first == second:
+            return func(first, second, '+')
+        if first > second:
+            return func(first, second, '-')
+        if second > first:
+            return func(first, second, '/')
+        if second < 0 or first < 0:
+            return func(first, second, '*')
         else:
             pass
 
@@ -31,6 +31,8 @@ def calc(first, second, operation):
 input1 = int(input('введите число1 '))
 input2 = int(input('введите число2 '))
 
-calc()
-result = calc()
+calc(input1, input2)
+result = calc(input1, input2)
 print(result)
+
+

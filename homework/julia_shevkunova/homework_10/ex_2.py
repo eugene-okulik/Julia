@@ -1,16 +1,14 @@
 def repeat_me(func):
     def wrapper(count):
         for i in range(count):
-            func(count)
+            func()
 
     return wrapper
 
 
 @repeat_me
-def funcdec(count):
+def funcdec():
     print('print me')
 
 
-funcdec(5)
-
-
+funcdec(2)

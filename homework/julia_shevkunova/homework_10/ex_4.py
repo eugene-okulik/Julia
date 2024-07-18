@@ -12,4 +12,3 @@ price_list = [x for x in split_list if x.endswith('р')]
 elements_list = [x for x in split_list if not x.endswith('р')]
 new_dict = dict(zip(elements_list, price_list))
 print(new_dict)
-

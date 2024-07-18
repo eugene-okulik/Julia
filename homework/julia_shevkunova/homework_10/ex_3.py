@@ -34,5 +34,3 @@ input2 = int(input('введите число2 '))
 calc(input1, input2)
 result = calc(input1, input2)
 print(result)
-
-

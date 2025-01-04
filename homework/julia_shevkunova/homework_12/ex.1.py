@@ -34,7 +34,6 @@ class Bouquet:
     def __init__(self):
         self.list_flowers = []
 
-
     def bouquet_price(self):
         prices_sum = 0
         for flower in self.list_flowers:
@@ -75,4 +74,5 @@ print(Bouquet.sort_by_price())
 print(Bouquet.sort_by_freshness())
 print(Bouquet.time_of_fading())
 print(Bouquet.search_by_lifetime(5))
+
 

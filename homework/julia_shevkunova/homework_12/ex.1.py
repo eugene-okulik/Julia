@@ -74,6 +74,3 @@ print(Bouquet.sort_by_price())
 print(Bouquet.sort_by_freshness())
 print(Bouquet.time_of_fading())
 print(Bouquet.search_by_lifetime(5))
-
-
-

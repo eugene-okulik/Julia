@@ -5,6 +5,7 @@ class Flowers:
         self.freshness = freshness
         self.color = color
 
+
     def __repr__(self):
         return (f"{self.__class__.__name__}(price={self.price}, freshness={self.freshness}, color='{self.color}, "
                 f"time_of_life='{self.time_of_life}')")
@@ -34,36 +35,43 @@ class Bouquet:
     def __init__(self):
         self.list_flowers = []
 
+
     def bouquet_price(self):
         prices_sum = 0
         for flower in self.list_flowers:
             prices_sum += flower.price
         return prices_sum
 
+
     @staticmethod
     def time_of_fading():
         time_fading = total_lifetime / number_of_list_of_flowers
         return time_fading
+
 
     @staticmethod
     def sort_by_price():
         sorted_list = sorted(list_of_flowers, key=lambda flower: flower.price)
         return sorted_list
 
+
     @staticmethod
     def sort_by_freshness():
         sorted_list = sorted(list_of_flowers, key=lambda flower: flower.freshness)
         return sorted_list
+
 
     @staticmethod
     def sort_by_color():
         sorted_list = sorted(list_of_flowers, key=lambda flower: flower.color)
         return sorted_list
 
+
     @staticmethod
     def search_by_lifetime(lifetime):
         flowers = list(sorted(list_of_flowers, key=lambda flower: flower.time_of_life == lifetime))
         return flowers
+
 
 number_of_list_of_flowers = len(list_of_flowers)
 total_lifetime = early_rose.time_of_life + late_rose.time_of_life + early_lotus.time_of_life + late_lotus.time_of_life

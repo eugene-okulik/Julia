@@ -12,6 +12,7 @@ with open(eugene_file_path) as data_txt:
     print(data_txt.read())
 print("_________________________________")
 
+
 def process_date_strings(eugene_file_path):
     with open(eugene_file_path) as data_txt:
         for line in data_txt:
@@ -29,5 +30,6 @@ def process_date_strings(eugene_file_path):
                 dt_obj = datetime.datetime.fromisoformat(date_str)
                 new_dt = now - dt_obj
                 print(new_dt)
+
 
 process_date_strings(eugene_file_path)

@@ -1,14 +1,14 @@
 import mysql.connector as mysql
 
 db = mysql.connect(
-username='st-onl',
-password='AVNS_tegPDkI5BlB2lW5eASC',
-host='db-mysql-fra1-09136-do-user-7651996-0.b.db.ondigitalocean.com',
-port='25060',
-database='st-onl'
+    username='st-onl',
+    password='AVNS_tegPDkI5BlB2lW5eASC',
+    host='db-mysql-fra1-09136-do-user-7651996-0.b.db.ondigitalocean.com',
+    port='25060',
+    database='st-onl'
 )
 
-cursor=db.cursor(dictionary=True)
+cursor = db.cursor(dictionary=True)
 
 # добавляем студента
 cursor.execute("INSERT INTO students (name, second_name) VALUES ('JuliS', 'Test2')")
@@ -84,7 +84,7 @@ cursor.execute("""
     JOIN marks m ON s.id=m.student_id
     JOIN `groups` g ON g.id=s.group_id
     JOIN lessons l ON l.id=m.lesson_id
-    JOIN subjets s2 ON s2.id=l.subject_id 
+    JOIN subjets s2 ON s2.id=l.subject_id
     WHERE s.id=%s AND l.id=%s AND g.id=%s AND s2.id=%s
     """, (student_id, lesson_id, group_id, subjets_id))
 print(cursor.fetchall())

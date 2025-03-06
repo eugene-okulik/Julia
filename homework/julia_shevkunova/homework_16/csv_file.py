@@ -42,7 +42,7 @@ with open(eugene_file_path, newline='') as csv_file:
                 if row not in values_list:
                     print(row)
             except Exception as e:
-                    print(f"{row}: {e}")
+                print(f"{row}: {e}")
 
     cursor.close()
     db.close()

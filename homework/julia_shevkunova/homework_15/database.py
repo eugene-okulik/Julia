@@ -1,5 +1,6 @@
 import mysql.connector as mysql
 
+
 db = mysql.connect(
     username='st-onl',
     password='AVNS_tegPDkI5BlB2lW5eASC',

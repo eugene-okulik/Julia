@@ -26,8 +26,8 @@ with open(eugene_file_path, newline='') as csv_file:
     for row in file_data:
         if db.is_connected():
             cursor.execute("""
-           SELECT s.name as 'name', s.second_name as 'second_name', g.title as 'group', b.title as 'book name', s2.title as 'subject', \
-           l.title as 'lesson', m.value as 'mark'
+           SELECT s.name as 'name', s.second_name as 'second_name', g.title as 'group', b.title as 'book name', \
+           s2.title as 'subject', l.title as 'lesson', m.value as 'mark'
            FROM students s
            JOIN books b ON s.id=b.taken_by_student_id
            JOIN marks m ON s.id=m.student_id

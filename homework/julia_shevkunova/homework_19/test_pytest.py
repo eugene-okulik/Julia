@@ -77,7 +77,7 @@ def test_patch_a_post(new_post_id, body, test_progress):
     assert response['body'] == body['body']
 
 
-def test_delete_a_post (new_post_id, test_progress):
-        print('test delete')
-        response = requests.delete(f'https://jsonplaceholder.typicode.com/posts/{new_post_id}').json()
-        print(response['id'])
+def test_delete_a_post(new_post_id, test_progress):
+    print('test delete')
+    response = requests.delete(f'https://jsonplaceholder.typicode.com/posts/{new_post_id}').json()
+    print(response['id'])

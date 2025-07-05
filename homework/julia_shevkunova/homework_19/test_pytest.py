@@ -1,6 +1,7 @@
 import requests
 import pytest
 
+
 @pytest.fixture()
 def new_post_id():
     body = {"title": "fsak", "body": "baras", "userId": 1}
@@ -22,6 +23,7 @@ def tests_progress():
     print('Start testing')
     yield
     print('Test completed')
+
 
 @pytest.fixture(scope='function')
 def test_progress():
@@ -71,8 +73,7 @@ def test_patch_a_post(new_post_id, body, test_progress):
     response = requests.patch(
         f'https://jsonplaceholder.typicode.com/posts/{new_post_id}',
         json=body,
-        headers=headers
-    ).json()
+        headers=headers).json()
     assert response['body'] == body['body']
 
 

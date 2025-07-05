@@ -4,7 +4,7 @@ import pytest
 
 @pytest.fixture()
 def new_object_id():
-    body = {"name": "new", "data": {"color":"white","size":"big"}}
+    body = {"name": "new", "data": {"color": "white", "size": "big"}}
     headers = {'Content-Type': 'application/json'}
     response = requests.post(
         'http://167.172.172.115:52353/object',
@@ -47,7 +47,7 @@ def test_get_all_objects(test_progress):
 
 @pytest.mark.medium
 def test_add_object(test_progress, tests_progress):
-    body = {"name": "new", "data": {"color":"white","size":"big"}}
+    body = {"name": "new", "data": {"color": "white", "size": "big"}}
     headers = {'Content-Type': 'application/json'}
     response = requests.post(
         'http://167.172.172.115:52353/object',

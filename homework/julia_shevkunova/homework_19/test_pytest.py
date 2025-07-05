@@ -3,19 +3,19 @@ import pytest
 
 
 @pytest.fixture()
-def new_post_id():
-    body = {"title": "fsak", "body": "baras", "userId": 1}
+def new_object_id():
+    body = {"name": "new", "data": {"color":"white","size":"big"}}
     headers = {'Content-Type': 'application/json'}
     response = requests.post(
-        'https://jsonplaceholder.typicode.com/posts',
+        'http://167.172.172.115:52353/object',
         json=body,
         headers=headers
     )
-    post_id = response.json()['id']
-    print(post_id)
-    yield post_id
-    print('deleting the post')
-    requests.delete(f'https://jsonplaceholder.typicode.com/posts/{post_id}')
+    print(response)
+    object_id = response.json()['id']
+    yield object_id
+    print('deleting the object')
+    requests.delete(f'http://167.172.172.115:52353/object/{object_id}')
 
 
 @pytest.fixture(scope='session')
@@ -32,52 +32,46 @@ def test_progress():
     print('after test')
 
 
-def test_get_one_post(test_progress, new_post_id, tests_progress):
-    print('test get one')
-    response = requests.get(f'https://jsonplaceholder.typicode.com/posts/{new_post_id}').json()
-    assert response['id'] == new_post_id
+def test_get_one_object(test_progress, new_object_id, tests_progress):
+    print('test')
+    response = requests.get(f'http://167.172.172.115:52353/object/{new_object_id}').json()
+    assert response['id'] == new_object_id
 
 
 @pytest.mark.critical
-def test_get_all_posts(test_progress):
-    print('test get all')
-    response = requests.get('https://jsonplaceholder.typicode.com/posts').json()
+def test_get_all_objects(test_progress):
+    print('test')
+    response = requests.get('http://167.172.172.115:52353/object').json()
     assert len(response) == 100
 
 
 @pytest.mark.medium
-def test_add_post(test_progress, tests_progress):
-    print('test add')
-    body = {
-        "title": "fsakjdhfkasjdhflkajsdhlkfjashdfoo",
-        "body": "barasdfaskdjfhlaksdfoiwueysdhgkjashdkfjhalskdjfhasdf",
-        "userId": 1
-    }
+def test_add_object(test_progress, tests_progress):
+    body = {"name": "new", "data": {"color":"white","size":"big"}}
     headers = {'Content-Type': 'application/json'}
     response = requests.post(
-        'https://jsonplaceholder.typicode.com/posts',
+        'http://167.172.172.115:52353/object',
         json=body,
         headers=headers
     ).json()
     assert response['id'] == 101
 
 
-@pytest.mark.parametrize('body', ['', 1, '!@#_'])
-def test_patch_a_post(new_post_id, body, test_progress):
-    print(body)
+@pytest.mark.parametrize('name', ['', '1', '!@#_'])
+def test_patch_a_object(new_object_id, name, test_progress):
+    print(name)
     body = {
-        "body": body,
-        "userId": 9
+        "name": name
     }
     headers = {'Content-Type': 'application/json'}
     response = requests.patch(
-        f'https://jsonplaceholder.typicode.com/posts/{new_post_id}',
+        f'http://167.172.172.115:52353/object/{new_object_id}',
         json=body,
         headers=headers).json()
-    assert response['body'] == body['body']
+    assert response['name'] == body['name']
 
 
-def test_delete_a_post(new_post_id, test_progress):
-    print('test delete')
-    response = requests.delete(f'https://jsonplaceholder.typicode.com/posts/{new_post_id}').json()
-    print(response['id'])
+def test_delete_a_object(new_object_id, test_progress):
+    print('test')
+    response = requests.delete(f'http://167.172.172.115:52353/object/{new_object_id}')
+    assert response.status_code in (200, 204)

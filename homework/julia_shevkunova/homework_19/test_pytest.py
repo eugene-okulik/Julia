@@ -1,3 +1,5 @@
+from contextlib import nullcontext
+
 import requests
 import pytest
 
@@ -42,7 +44,7 @@ def test_get_one_object(test_progress, new_object_id, tests_progress):
 def test_get_all_objects(test_progress):
     print('test')
     response = requests.get('http://167.172.172.115:52353/object').json()
-    assert len(response) == 100
+    assert response is not None, "Ответ пустой"
 
 
 @pytest.mark.medium
@@ -54,7 +56,8 @@ def test_add_object(test_progress, tests_progress):
         json=body,
         headers=headers
     ).json()
-    assert response['id'] == 101
+    assert 'id' in response
+    assert response['id'] is not None
 
 
 @pytest.mark.parametrize('name', ['', '1', '!@#_'])

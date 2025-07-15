@@ -32,6 +32,7 @@ def test_progress():
     yield
     print('after test')
 
+
 @allure.feature('Objects with progress indicator')
 @allure.story('Get object')
 def test_get_one_object(test_progress, new_object_id, tests_progress):
@@ -58,16 +59,16 @@ def test_get_all_objects(test_progress):
 def test_add_object(test_progress, tests_progress):
     with allure.step('Prepare test data'):
         body = {"name": "new", "data": {"color": "white", "size": "big"}}
-    headers = {'Content-Type': 'application/json'}
+        headers = {'Content-Type': 'application/json'}
     with allure.step('Run request to add object'):
         response = requests.post(
-        'http://167.172.172.115:52353/object',
-        json=body,
-        headers=headers
+            'http://167.172.172.115:52353/object',
+            json=body,
+            headers=headers
         ).json()
     with allure.step('Check that id is not null'):
         assert 'id' in response
-    assert response['id'] is not None
+        assert response['id'] is not None
 
 
 @allure.feature('Objects with progress indicator')

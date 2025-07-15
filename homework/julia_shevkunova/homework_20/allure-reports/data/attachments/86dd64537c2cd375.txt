@@ -1,6 +1,0 @@
-Start testing
-before test
-<Response [200]>
-test
-deleting the object
-after test

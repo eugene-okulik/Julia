@@ -1,5 +1,0 @@
-<Response [200]>
-before test
-1
-after test
-deleting the object

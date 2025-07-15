@@ -1,0 +1,5 @@
+<Response [200]>
+before test
+test
+after test
+deleting the object

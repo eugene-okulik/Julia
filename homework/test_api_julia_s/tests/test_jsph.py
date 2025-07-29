@@ -3,19 +3,21 @@ import requests
 import pytest
 
 TEST_DATA = [
-        {"name": "new", "data": {"color": "white", "size": "big"}},
-        {"name": "new2", "data": {"color": "white2", "size": "big2"}}
+    {"name": "new", "data": {"color": "white", "size": "big"}},
+    {"name": "new2", "data": {"color": "white2", "size": "big2"}}
 ]
 
 NEGATIVE_DATA = [
-        {"name": ["new"], "data": {"color": "white", "size": "big"}},
-        {"name": "new2", "data": {"color": "white2", "size": "big2"}}]
+    {"name": ["new"], "data": {"color": "white", "size": "big"}},
+    {"name": "new2", "data": {"color": "white2", "size": "big2"}}
+]
+
 
 @pytest.mark.parametrize('data', TEST_DATA)
 def test_add_object(create_object_endpoint, data):
-        create_object_endpoint.new_object(payload=data)
-        create_object_endpoint.check_that_status_is_200()
-        create_object_endpoint.check_response_id_is_not_none()
+    create_object_endpoint.new_object(payload=data)
+    create_object_endpoint.check_that_status_is_200()
+    create_object_endpoint.check_response_id_is_not_none()
 
 
 # @pytest.mark.parametrize('data', NEGATIVE_DATA)

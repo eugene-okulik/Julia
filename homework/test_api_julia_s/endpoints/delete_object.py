@@ -10,4 +10,3 @@ class DeleteObject(Endpoint):
         self.response = requests.delete(f'{self.url}/{new_object_id}')
         self.json = None
         return self.response
-

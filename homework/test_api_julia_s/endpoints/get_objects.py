@@ -15,4 +15,3 @@ class GetObjects(Endpoint):
     def check_response_is_not_empty(self):
         json_response = self.response.json()
         assert json_response, 'response is empty'
-

@@ -9,7 +9,7 @@ TEST_DATA = [
 
 NEGATIVE_DATA = [
     {"name": ["new"], "data": {"color": "white", "size": "big"}},
-    {"name": "new2", "data": {"color": "white2", "size": "big2"}}
+    {"name": ["new"], "data": {"color": "white2", "size": "big2"}}
 ]
 
 
@@ -33,6 +33,13 @@ def test_patch_a_object(update_object_endpoint, new_object_id):
     update_object_endpoint.make_changes_in_object(new_object_id, payload)
     update_object_endpoint.check_that_status_is_200()
     update_object_endpoint.check_response_name_is_correct(payload['name'])
+
+
+def test_put_an_object(put_object_endpoint, new_object_id):
+    payload = {"name": "new2", "data": {"color": "white2", "size": "big2"}}
+    put_object_endpoint.make_changes_put_in_object(new_object_id, payload)
+    put_object_endpoint.check_that_status_is_200()
+    # update_post_endpoint.check_response_title_is_correct(payload['title'])
 
 
 def test_delete_a_object(delete_object_endpoint, new_object_id):

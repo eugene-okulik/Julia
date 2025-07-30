@@ -4,6 +4,7 @@ from endpoints.update_object import UpdateObject
 from endpoints.delete_object import DeleteObject
 from endpoints.get_objects import GetObjects
 from endpoints.get_object import GetOneObject
+from endpoints.put_object import UpdatePutObject
 import requests
 
 
@@ -31,6 +32,10 @@ def get_all_objects_endpoint():
 def get_object_endpoint():
     return GetOneObject()
 
+@pytest.fixture()
+def put_object_endpoint():
+    return UpdatePutObject()
+
 
 @pytest.fixture()
 def new_object_id():
@@ -41,4 +46,6 @@ def new_object_id():
         json=payload,
         headers=headers
     )
-    return response.json()['id']
+    object_id = response.json()['id']
+    yield object_id
+    requests.delete(f'http://167.172.172.115:52353/object/{object_id}')

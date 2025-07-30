@@ -1,5 +1,6 @@
 import requests
 import allure
+import json
 from endpoints.endpoint import Endpoint
 
 
@@ -12,8 +13,12 @@ class CreateObject(Endpoint):
             json=payload,
             headers=headers
         )
-        self.json = self.response.json()
+        try:
+            self.json = self.response.json()
+        except json.JSONDecodeError:
+            self.json = None
         return self.response
+
 
     @allure.step('Check that id is not null')
     def check_response_id_is_not_none(self):

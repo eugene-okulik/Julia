@@ -32,6 +32,7 @@ def get_all_objects_endpoint():
 def get_object_endpoint():
     return GetOneObject()
 
+
 @pytest.fixture()
 def put_object_endpoint():
     return UpdatePutObject()

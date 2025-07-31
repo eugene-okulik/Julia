@@ -20,10 +20,10 @@ def test_add_object(create_object_endpoint, data):
     create_object_endpoint.check_response_id_is_not_none()
 
 
-# @pytest.mark.parametrize('data', NEGATIVE_DATA)
-# def test_add_object_with_negative_data(create_object_endpoint, data):
-#         create_object_endpoint.new_object(payload=data)
-#         create_object_endpoint.check_bad_request()
+@pytest.mark.parametrize('data', NEGATIVE_DATA)
+def test_add_object_with_negative_data(create_object_endpoint, data):
+        create_object_endpoint.new_object(payload=data)
+        create_object_endpoint.check_bad_request()
 
 
 def test_patch_a_object(update_object_endpoint, new_object_id):
@@ -39,7 +39,6 @@ def test_put_an_object(put_object_endpoint, new_object_id):
     payload = {"name": "new2", "data": {"color": "white2", "size": "big2"}}
     put_object_endpoint.make_changes_put_in_object(new_object_id, payload)
     put_object_endpoint.check_that_status_is_200()
-    # update_post_endpoint.check_response_title_is_correct(payload['title'])
 
 
 def test_delete_a_object(delete_object_endpoint, new_object_id):

@@ -39,14 +39,10 @@ def put_object_endpoint():
 
 
 @pytest.fixture()
-def new_object_id():
+def new_object_id(create_object_endpoint):
     payload = {"name": "new", "data": {"color": "white", "size": "big"}}
-    headers = {'Content-Type': 'application/json'}
-    response = requests.post(
-        'http://167.172.172.115:52353/object',
-        json=payload,
-        headers=headers
-    )
+    response = create_object_endpoint.new_object(payload)
     object_id = response.json()['id']
     yield object_id
-    requests.delete(f'http://167.172.172.115:52353/object/{object_id}')
+    deleter = DeleteObject()
+    deleter.delete_a_object(object_id)

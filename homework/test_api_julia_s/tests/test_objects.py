@@ -22,8 +22,8 @@ def test_add_object(create_object_endpoint, data):
 
 @pytest.mark.parametrize('data', NEGATIVE_DATA)
 def test_add_object_with_negative_data(create_object_endpoint, data):
-        create_object_endpoint.new_object(payload=data)
-        create_object_endpoint.check_bad_request()
+    create_object_endpoint.new_object(payload=data)
+    create_object_endpoint.check_bad_request()
 
 
 def test_patch_a_object(update_object_endpoint, new_object_id):

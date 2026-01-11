@@ -4,6 +4,7 @@ from selenium.webdriver.common.keys import Keys
 import pytest
 from time import sleep
 
+
 @pytest.fixture()
 def driver():
     chrome_driver = webdriver.Chrome()

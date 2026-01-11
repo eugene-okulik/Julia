@@ -7,6 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import pytest
 from time import sleep
 
+
 @pytest.fixture()
 def driver():
     chrome_driver = webdriver.Chrome()
@@ -43,12 +44,12 @@ def test_form(driver):
     subjects.send_keys(Keys.ENTER)
     subjects.click()
 
-    #Hobbies
+    # Hobbies
     hobby_label = wait.until(EC.element_to_be_clickable((By.XPATH, '//label[@for="hobbies-checkbox-1"]')))
     driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", hobby_label)
     ActionChains(driver).move_to_element(hobby_label).pause(0.2).click().perform()
 
-    #  Address
+    # Address
     driver.find_element(By.ID, 'currentAddress').send_keys('My address')
 
     # Scroll to State/City

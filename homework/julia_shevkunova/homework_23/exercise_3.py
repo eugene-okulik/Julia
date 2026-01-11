@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import pytest
 from time import sleep
 
+
 @pytest.fixture()
 def driver():
     chrome_driver = webdriver.Chrome()
@@ -34,9 +35,13 @@ def test_form(driver):
 
 def test_form_second(driver):
     driver.get("https://the-internet.herokuapp.com/dynamic_loading/2")
+
     submit_btn = driver.find_element(By.XPATH, '//*[@id="start"]/button')
     submit_btn.click()
+
     result = WebDriverWait(driver, 10).until(
-           EC.visibility_of_element_located((By.ID, "finish"))
-       )
+        EC.visibility_of_element_located((By.ID, "finish"))
+    )
+
     assert result.text == "Hello World!"
+

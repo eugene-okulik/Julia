@@ -33,6 +33,7 @@ def test_form(driver):
     result = driver.find_element(By.ID, "result-text")
     assert result.text == selected_language
 
+
 def test_form_second(driver):
     driver.get("https://the-internet.herokuapp.com/dynamic_loading/2")
 
@@ -42,6 +43,4 @@ def test_form_second(driver):
     result = WebDriverWait(driver, 10).until(
         EC.visibility_of_element_located((By.ID, "finish"))
     )
-
     assert result.text == "Hello World!"
-

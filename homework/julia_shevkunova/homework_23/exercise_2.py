@@ -16,6 +16,7 @@ def driver():
     sleep(3)
     chrome_driver.quit()
 
+
 def test_form(driver):
     driver.get('https://demoqa.com/automation-practice-form')
     wait = WebDriverWait(driver, 10)

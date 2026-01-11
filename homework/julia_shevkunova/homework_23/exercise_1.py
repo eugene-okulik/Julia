@@ -13,6 +13,7 @@ def driver():
     yield chrome_driver
     sleep(3)
 
+
 def test_sub(driver):
     driver.get('https://www.qa-practice.com/elements/input/simple')
     text_string = driver.find_element(By.XPATH, '//*[@placeholder="Submit me"]')

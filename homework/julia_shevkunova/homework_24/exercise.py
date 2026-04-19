@@ -71,23 +71,20 @@ def test_adding_from_shopping_cart_icon(driver):
         (By.CSS_SELECTOR, ".oe_product_cart")
     ))
 
-    # 3. взять название товара
-    product_name = product.text
-
-    # 4. навести мышку
+    # 3. навести мышку
     ActionChains(driver).move_to_element(product).perform()
-    # 5. нажать на корзину
+    # 4. нажать на корзину
     add_btn = wait.until(EC.element_to_be_clickable(
         (By.CSS_SELECTOR, "a.a-submit[aria-label='Shopping cart']")
     ))
     add_btn.click()
 
-    # 6. дождаться появления popup
+    # 5. дождаться появления popup
     wait.until(EC.visibility_of_element_located(
         (By.CSS_SELECTOR, ".modal-content")
     ))
 
-    # 7. проверить, что товар есть в popup
+    # 6. проверить, что товар есть в popup
     cart_item = wait.until(EC.presence_of_element_located(
         (By.XPATH, "//*[contains(text(), 'Customizable Desk')]")
     ))

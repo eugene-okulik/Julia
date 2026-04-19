@@ -28,12 +28,10 @@ def test_adding_to_cart(driver):
         'li[data-link-href="/shop/category/desks-1"]'
     ).click()
 
-    # 3. взять товар
+    # 3. найти товар
     product = wait.until(EC.presence_of_element_located(
         (By.CSS_SELECTOR, 'a[href*="customizable-desk"]')
     ))
-
-    product_name = product.text
 
     # 4. открыть товар в новой вкладке
     driver.execute_script("window.open(arguments[0]);", product.get_attribute("href"))

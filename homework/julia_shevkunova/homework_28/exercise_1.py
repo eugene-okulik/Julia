@@ -7,13 +7,3 @@ def test_get_by_role(page: Page):
     page.get_by_role("textbox", name="Username").fill("tomsmith")
     page.get_by_label("Password").fill("SuperSecretPassword!")
     page.get_by_role("button", name="Login").click()
-
-
-
-
-
-
-
-
-
-
